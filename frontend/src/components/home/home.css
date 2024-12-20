@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+
+.fancy{
+    font-family: "Lavishly Yours", cursive;
+    font-weight: 500;
+    font-style: normal;
+    color: silver;
+    text-align: center;
+}
+
+.normal{
+    color: silver;
+    font-size: medium;
+    text-align: center;
+}
