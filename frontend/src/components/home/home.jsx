@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './home.css'; // Import CSS modules
 import Header from "../header/header.jsx"
+import Footer from '../footer/footer.jsx';
 import Countdown from './countdown.js';
 
 
@@ -46,6 +47,7 @@ function Home() {
             <h2 className="normal">วันที่ 16/2/2568 เราจะแต่งงานกัน งานแต่งงานจะเกิดขึ้นในประเทศไทย ดังนั้นฉันเข้าใจว่าครอบครัวจะไม่สามารถเข้าร่วมได้ วิธีแก้ปัญหาของเราคือจัดงานแต่งงานครั้งที่สองในสหรัฐอเมริกาหลังจากที่ฟ้าได้รับวีซ่าของเธอแล้ว นี่จะเป็นวิธีที่ดีที่สุดในการช่วยให้เราแบ่งปันกิจกรรมนี้กับทั้งครอบครัวของเรา น่าเสียดายไม่สามารถกำหนดพิธีการครั้งที่สองได้ในขณะนี้เนื่องจากฟ้าต้องการวีซ่า ฉันจะให้ทุกคนโพสต์เกี่ยวกับเรื่องนี้</h2>
         {/* <h1>Home</h1>
         <p>{message}</p> */}
+        <Footer />
       </div>
     );
   }
