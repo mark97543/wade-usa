@@ -67,23 +67,36 @@
 }
 
 .dataRender{
-    width: 20%;
+    width: 22%;
     min-width: 300px;
     /* max-width: 600px; */
     list-style: none;
     padding: 0;
     margin-top: 10px;
     justify-self: center;
+    color: silver;
 }
 
-.listItem{
+.listItem {
+    display: flex; /* Use flexbox for easy alignment */
+    align-items: center; /* Vertically align items */
+    gap: 10px; /* Space between items */
+    padding: 5px;
     border: 1px solid silver;
     border-radius: 25px;
-    padding: 10px;
-    margin-bottom: 10px;
-    display: flex; /* Use flexbox for vertical centering */
-    align-items: center; /* Vertically center items */
-    justify-content: space-between; /* Distribute space between items */
+    align-items: center; /* Center vertically */
+    word-break: break-word; /*added to prevent long words from breaking layout*/
+    padding: 10px; /* Increased padding for better spacing */
+}
+
+.itemText {
+    width: 80%; /* Allow text to take up available space */
+}
+
+.itemText.completed { /* Style for completed text */
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    text-decoration-color: silver;
 }
 
 .deleteButton{
@@ -91,11 +104,16 @@
     border: none;
     color: silver;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 0;
     border-radius: 5px;
-    height: fit-content; /* Ensure button height fits content */
-    align-self: center; /* Vertically center the button within the list item*/
+    width: 40px; /* Set a fixed width */
+    height: 40px; /* Set a fixed height */
+    display: flex; /* Use flexbox for centering */
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
+    padding: 5px; /* Added padding to the button */
+    line-height: 1;
 }
 
 .dataLabel{
@@ -123,4 +141,20 @@ input[type="checkbox"]:checked::before {
     font-size: 1.5em; /* Increased checkmark size */
     font-weight: bold; /* Makes checkmark bolder */
     line-height: 1; /* Adjust line height for better vertical alignment */
+}
+
+.listItem.completed { /* Style for completed items */
+    text-decoration: line-through;
+    text-decoration-thickness: 3px; /* Adjust thickness as needed */
+    text-decoration-color: silver; /* Change to your desired color */
+}
+
+.item-container{
+    display: flex;
+    align-items: center; /* Center checkbox and text vertically */
+    flex-grow: 1;
+}
+
+.deleteButton:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Add a subtle hover effect */
 }
