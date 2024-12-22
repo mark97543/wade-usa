@@ -1,0 +1,126 @@
+
+.normal{
+    color:silver
+}
+
+.todo-hero{
+    width:20%;
+    height: 140px;
+    border: 1px solid silver;
+    margin: 10px;
+    justify-self: center;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    justify-items: center;
+    align-items: center;
+    min-width: 300px;
+}
+
+.lbox{
+    color: silver;
+    font-weight: 300;
+    font-size: xx-large;
+
+    
+}
+
+.rbox{
+    color: silver;
+    font-size: xx-large;
+    border: 1px solid silver;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    text-align: center;
+    align-content: center;
+    background-color:darkcyan;
+
+}
+
+.entrybox{
+    width: 20%;
+    justify-self: center;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 90% 10%;
+    justify-items: center;
+    align-items: center;
+    gap: 0px;
+    min-width: 300px;
+}
+
+.addButton{
+    background-color: darkcyan;
+    border-radius: 50%;
+    font-size: xx-large;
+    color: silver;
+    height: 40px;
+    width: 40px;
+    line-height: 0px;
+    padding: 0px;
+}
+
+.form-control{
+    width:95%;
+}
+
+.dataRender{
+    width: 20%;
+    min-width: 300px;
+    /* max-width: 600px; */
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    justify-self: center;
+}
+
+.listItem{
+    border: 1px solid silver;
+    border-radius: 25px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex; /* Use flexbox for vertical centering */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Distribute space between items */
+}
+
+.deleteButton{
+    background-color: darkcyan;
+    border: none;
+    color: silver;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    height: fit-content; /* Ensure button height fits content */
+    align-self: center; /* Vertically center the button within the list item*/
+    border-radius: 50%;
+}
+
+.dataLabel{
+    color: silver;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 24px; /* Increased size */
+    height: 24px; /* Increased size */
+    border: 2px solid silver;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    box-sizing: border-box; /* Prevents padding from affecting overall size */
+}
+
+input[type="checkbox"]:checked::before {
+    content: '\2713'; /* Unicode checkmark */
+    color: darkcyan;
+    font-size: 1.5em; /* Increased checkmark size */
+    font-weight: bold; /* Makes checkmark bolder */
+    line-height: 1; /* Adjust line height for better vertical alignment */
+}
