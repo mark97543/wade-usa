@@ -4,6 +4,9 @@ import axios from 'axios';
 import './App.css';
 import  Home  from "./components/home/home";
 import ToDo from './components/todo/todo';
+import 'bootswatch/dist/darkly/bootstrap.min.css'; // Replace 'slate' with your desired theme 
+
+
 
 
 
