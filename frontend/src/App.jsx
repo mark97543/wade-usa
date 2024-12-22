@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import  Home  from "./components/home/home";
-import ToDo from './components/todo/todo';
+import Greeting from './components/openmodel/model.jsx';
+
 
 
 function App() {

@@ -4,7 +4,7 @@ import './home.css'; // Import CSS modules
 import Header from "../header/header.jsx"
 import Footer from '../footer/footer.jsx';
 import Countdown from './countdown.js';
-
+import Greeting from './components/openmodel/model';
 
 
 function Home() {
@@ -45,8 +45,7 @@ function Home() {
 
             <h2 className="normal">On 2/16/2025 we will be getting married. The wedding will take place in Thailand so I understand family will not be able to attend. Our solution to this is to have a second wedding in the USA after Fa has recived her visa. This will be the best way to allow us to chare this event with both our family. Unfortionatly the second cermony cannot be scheduled at this time due to Fa needing a visa. I will keep everyone posted on this.</h2>
             <h2 className="normal">วันที่ 16/2/2568 เราจะแต่งงานกัน งานแต่งงานจะเกิดขึ้นในประเทศไทย ดังนั้นฉันเข้าใจว่าครอบครัวจะไม่สามารถเข้าร่วมได้ วิธีแก้ปัญหาของเราคือจัดงานแต่งงานครั้งที่สองในสหรัฐอเมริกาหลังจากที่ฟ้าได้รับวีซ่าของเธอแล้ว นี่จะเป็นวิธีที่ดีที่สุดในการช่วยให้เราแบ่งปันกิจกรรมนี้กับทั้งครอบครัวของเรา น่าเสียดายไม่สามารถกำหนดพิธีการครั้งที่สองได้ในขณะนี้เนื่องจากฟ้าต้องการวีซ่า ฉันจะให้ทุกคนโพสต์เกี่ยวกับเรื่องนี้</h2>
-        {/* <h1>Home</h1>
-        <p>{message}</p> */}
+        <Greeting />
         <Footer />
       </div>
     );
