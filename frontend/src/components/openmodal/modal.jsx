@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import "./modal.css"
 import jsonData from './modal.json'; // Import JSON directly
 
+//TODO: Need to make it so if you click outside the modal it will close
+
 const Greeting = ({ show, onClose })=>{
     
     const message = dateDraw({data:jsonData});
 
     
-    console.log(message)
+    //console.log(message)
 
 
     if (!show) {
@@ -18,14 +20,14 @@ const Greeting = ({ show, onClose })=>{
     return (
         <div id="greeting">
             <div id="modal-box">
-                <div id='row1'>
+                <div id='row1modal'>
                     <span className="close-button" onClick={onClose}>&times;</span> {/* Close button */}
-                    <h1 className='header'>To My Beautiful Fa,</h1>
+                    <h1 className='headermodal'>To My Beautiful Fa,</h1>
                 </div>
-                <div id='row2'>
+                <div id='row2modal'>
                     <p className='h2header'>{message}</p>
-                    <h2 className='header sig'>Your One and Only,</h2>
-                    <h2 className='header sig'>Mark Wade Jr.</h2>
+                    <h2 className='headermodal sig'>Your One and Only,</h2>
+                    <h2 className='headermodal sig'>Mark Wade Jr.</h2>
                 </div>
             </div>
         </div>

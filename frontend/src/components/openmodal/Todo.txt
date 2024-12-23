@@ -1,0 +1,1 @@
+1. Need to make so when you click out of modeal box it closes. 

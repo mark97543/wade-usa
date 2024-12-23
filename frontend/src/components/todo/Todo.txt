@@ -1,0 +1,2 @@
+1. Need to simplify code and make it more organized
+2. Increase Gap between items

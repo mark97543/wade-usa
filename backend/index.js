@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import pg from "pg";
 import dbChecker from "./dbsetup.js";
-import { getAllTodos } from './queries.js';
+import { getAllTodos , getAllTravelNames, replaceTripName, newTripName } from './queries.js';
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -31,10 +31,12 @@ async function connectToDb() {
 
 connectToDb();
 
+/* ---------------------------------- TODO ---------------------------------- */
+
 app.get('/api/todos', async (req, res) => {
     try {
         const todos = await getAllTodos(db);
-        console.log("Sending from GET:", todos); // Important logging
+        //console.log("Sending from GET:", todos); // Important logging
         res.json(todos);
     } catch (error) {
         console.error("Error fetching todos:", error);
@@ -55,13 +57,14 @@ app.put('/api/todos/:id', async (req, res) => {
         if (result.rowCount === 0) {
             return res.status(404).json({ message: "Todo not found" });
         }
-        console.log("Sending from PUT:", result.rows[0]);
+        //console.log("Sending from PUT:", result.rows[0]);
         res.json(result.rows[0]);
     } catch (err) {
         console.error("Error updating todo:", err);
         res.status(500).json({ error: err.message }); // Send error message
     }
 });
+
 app.post('/api/todos', async(req, res)=>{
     try{
         const {item} = req.body
@@ -86,8 +89,48 @@ app.delete('/api/todos/:id', async (req, res) => {
       console.error(err.message);
       res.status(500).json({ error: "Server error" });
     }
-  });
+});
 
+/* --------------------------------- Travel --------------------------------- */
+
+app.get('/api/travelnames', async(req, res)=>{
+    try {
+        const travelNames = await getAllTravelNames(db);
+        //console.log("Sending from GET:", travelNames); // Important logging
+        res.json(travelNames);
+    } catch (error) {
+        console.error("Error fetching Travel Names:", error);
+        res.status(500).json({ error: error.message }); // Send error message
+    }
+})
+
+app.put('/api/updatetripname', async (req,res)=>{
+    
+    const {oldname, newname} = req.body;
+
+    try {
+        const travelNames = await replaceTripName(db, oldname, newname)
+        console.log("Sending from GET:", travelNames); // Important logging
+        res.json("Data Submitted");
+    } catch (error) {
+        console.error("Error fetching Travel Names:", error);
+        res.status(500).json({ error: error.message }); // Send error message
+    }
+})
+
+app.put('/api/newtrip', async (req,res)=>{
+    const {newname} = req.body;
+    try {
+        const travelNames = await newTripName(db, newname)
+        console.log("Sending from GET:", travelNames); // Important logging
+        res.json("Data Submitted");
+    } catch (error) {
+        console.error("Error Adding New Travel Item:", error);
+        res.status(500).json({ error: error.message }); // Send error message
+    }
+})
+
+/* --------------------------------- Listenr -------------------------------- */
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });

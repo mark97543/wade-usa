@@ -1,0 +1,123 @@
+#tablecontainer{
+    width: 90%;
+    margin: 20px auto;
+    border-left: 2px solid silver;
+    border-top: 2px solid silver;
+    border-right: 2px solid silver;
+    border-bottom: 2px solid silver;
+  
+}
+#row1travel, #addContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    border: 1px solid silver;
+    border-radius: 30px;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px auto;
+    padding: 15px;
+    gap: 4px; /* Adds consistent spacing between flex items */
+    
+}
+
+#loadbutton{
+    width: 100%;
+}
+
+#planselect{
+    width: 100%;
+}
+
+#planselectlabel, #newTripLabel{
+    text-align: center;
+    text-decoration: underline;
+    font-weight: normal; /* Or 400 */
+    margin-bottom: 0 !important; /* Override Bootstrap's margin-bottom */
+    margin-top: 0 !important;
+    display: block; /* ensure label is a block element */
+}
+
+#row2travel{
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+
+    padding-left: 0px;
+  
+}
+
+#row2box1, #row2box2{
+    display: grid;
+    grid-template-rows: min-content min-content;
+    height: fit-content;
+    margin-left: 0;
+    border-right: 1px solid silver;
+}
+
+#destinationLabel, #startDateLabel, #endDateLabel{
+    margin-bottom: 0; 
+    margin-top: 0 ;
+    font-size: small;
+    display: block; /* ensure label is a block element */
+    align-self: self-end;
+    justify-self: center;
+    width: 99%;    
+
+}
+
+#destination, #startDate, #endDate, #newTripInput{
+    margin: 3px;
+    justify-self: center;
+    background-color: transparent;
+    color: silver;
+}
+
+.departingflightbar{
+    background-color:olive;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 30px;
+}
+
+#departingflightsbarlabel{
+    color: black;
+}
+
+#departingflightemoji{
+    font-size: xxx-large;
+    justify-self: end;
+    align-self: end;
+    filter: brightness(0.7);
+}
+
+.departflightbox{
+    display: grid;
+    grid-template-columns: 10% 10% 10% 20% 20% auto;
+}
+
+.airline, .flight{
+    border-right: 1px solid silver;
+    margin: 3px;
+    justify-self: center;
+    background-color: transparent;
+    color: silver;
+    width: 99%;
+}
+
+.airlinebox, .flightnumber{
+    justify-self: center;
+    background-color: transparent;
+    color: silver;
+    width: 99%;
+}
+
+.formlabels{
+    margin-bottom: 0; 
+    margin-top: 0 ;
+    font-size: small;
+    display: block; /* ensure label is a block element */
+    align-self: self-end;
+    justify-self: center;
+    width: 99%;    
+}
+

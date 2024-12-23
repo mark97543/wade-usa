@@ -53,11 +53,11 @@
 
 .addButton{
     background-color: darkcyan;
-    border-radius: 50%;
+ 
     font-size: xx-large;
     color: silver;
-    height: 40px;
-    width: 40px;
+    height: 37px;
+    width: 37px;
     line-height: 0px;
     padding: 0px;
 }
@@ -75,6 +75,7 @@
     margin-top: 10px;
     justify-self: center;
     color: silver;
+
 }
 
 .listItem {
