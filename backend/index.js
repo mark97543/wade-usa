@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import pg from "pg";
 import dbChecker from "./dbsetup.js";
-import { getAllTodos , getAllTravelNames, replaceTripName, newTripName } from './queries.js';
+import { getAllTodos , getAllTravelNames, replaceTripName, newTripName, DeleteTrip , getTravelData} from './queries.js';
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -129,6 +129,30 @@ app.put('/api/newtrip', async (req,res)=>{
         res.status(500).json({ error: error.message }); // Send error message
     }
 })
+
+app.put('/api/deletetrip', async (req,res)=>{
+    const {itemName} = req.body;
+
+    try {
+        const travelNames = await DeleteTrip(db, itemName)
+        console.log("Sending from GET:", travelNames); // Important logging
+        res.json("Data Submitted");
+    } catch (error) {
+        console.error("Error Adding New Travel Item:", error);
+        res.status(500).json({ error: error.message }); // Send error message
+    }
+})
+
+app.get('/api/gettripdata', async(req, res)=>{
+    try {
+        const travelNames = await getTravelData(db);
+        res.json(travelNames);
+    } catch (error) {
+        console.error("Error fetching Travel Names:", error);
+        res.status(500).json({ error: error.message }); // Send error message
+    }
+})
+
 
 /* --------------------------------- Listenr -------------------------------- */
 app.listen(port, () => {

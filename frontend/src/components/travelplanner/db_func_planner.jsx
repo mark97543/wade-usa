@@ -41,5 +41,25 @@ const NewTrip = async({newname})=>{
     
 };
 
+const DeleteTrip = async({itemName})=>{
+    try{
+        const response = await axios.put('/api/deletetrip', {
+            itemName: itemName
+          })
+        console.log("Data Sent From Local")
+    }catch(err){
+        console.log(err)
+    }
+    
+};
 
-export {FetchTrips, UpdateName, NewTrip};
+const FetchData = async({setData})=>{
+    try{
+        const response = await axios.get('/api/gettripdata')
+        setData(response.data)
+    }catch(err){
+        console.log(err)
+    }
+   
+}
+export {FetchTrips, UpdateName, NewTrip, DeleteTrip, FetchData};

@@ -3,7 +3,7 @@ import { UpdateName, NewTrip } from './db_func_planner';
 import { StatesContext } from './travelplanner';
 import { FetchTrips } from './db_func_planner';
 
-const DestinationNameChange = ({setTripNames, tripNames, setSelectedValue})=>(event)=>{
+const DestinationNameChange = ({setTripNames, tripNames, setSelectedValue, setLoading})=>(event)=>{
     const newValue = event.target.value
     const oldValue = document.getElementById('planselect').value
     const itemData = tripNames.find(obj=>obj.tripname === oldValue) //Finds the Unique ID of the Object
@@ -16,13 +16,14 @@ const DestinationNameChange = ({setTripNames, tripNames, setSelectedValue})=>(ev
           return tripData; // Return unchanged tripData
         });
     });
+    setLoading(true)
     setSelectedValue(newValue)
     UpdateName({oldname:oldValue, newname:newValue})
 }
 
 const AddNewTrip=()=>{
   
-  const {setLoading,setTripNames, setSelectedValue, setTogglevis, toggleVis}=useContext(StatesContext)
+  const {setLoading,setTripNames, setSelectedValue, setTogglevis, toggleVis, setAddvis}=useContext(StatesContext)
 
   const handleBlur = (event)=>{
     const newTrip = document.getElementById('newTripInput').value;
@@ -30,9 +31,8 @@ const AddNewTrip=()=>{
     setLoading(true)
     FetchTrips({setTripNames:setTripNames, setLoading:setLoading})
     setSelectedValue(newTrip)
-    setTogglevis(false)
-    //changevis(toggleVis)
-
+    setAddvis(false)
+    setTogglevis(true)
   }
 
   return(
@@ -44,12 +44,5 @@ const AddNewTrip=()=>{
 
 }
 
-// const changevis = (toggleVis)=>{
-
-//   document.getElementById('planneronload').hidden = toggleVis;
-//   document.getElementById('tablecontainer').hidden = toggleVis;
-//   document.getElementById('addContainer').hidden = !toggleVis;
-  
-// }
 
 export {DestinationNameChange, AddNewTrip}; 

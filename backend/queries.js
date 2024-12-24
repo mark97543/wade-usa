@@ -38,7 +38,23 @@ const newTripName = async(db,newname)=>{
     }
 }
 
+const DeleteTrip = async(db,itemName)=>{
+    try{
+        const result = await db.query("DELETE FROM public.travel WHERE tripname = ($1)", [itemName])
+        console.log("Deleted Item")
+    }catch(error){
+        console.error("Error Replaceing Travel Name:", error)
+    }
+}
+
+const getTravelData =async(db)=>{
+    try{
+        const result = await db.query("SELECT * FROM public.travel")
+        return result
+    }catch(error){
+        console.error("Error: Cannot fetch data", error)
+    }
+}
 
 
-
-export {getAllTodos, getAllTravelNames, replaceTripName, newTripName}
+export {getAllTodos, getAllTravelNames, replaceTripName, newTripName, DeleteTrip,getTravelData}

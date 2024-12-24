@@ -1,16 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AddNewTrip } from './change_events_planner';
 import { StatesContext } from './travelplanner';
-
+import { DeleteTrip } from './db_func_planner';
+import { FetchTrips } from './db_func_planner';
 
 const Row1planner = () =>{
 
-    const {selectedValue, setSelectedValue, tripNames, toggleVis, setTogglevis,addvis, setAddvis } = useContext(StatesContext);
-
-    if(selectedValue==="'Select A Trip'"){
-        setTogglevis(true)
-        setAddvis(false)
-    }
+    const {selectedValue, setSelectedValue, tripNames, toggleVis, setTogglevis,addvis, setAddvis, setLoading, setTripNames} = useContext(StatesContext);
 
     const handleSelectChange = (event) => {
 
@@ -27,6 +23,16 @@ const Row1planner = () =>{
         }
     };
 
+    const deleteTrip = async ()=>{
+        setLoading(true)   
+        await DeleteTrip({itemName:selectedValue})
+        // Fetch updated trip names after deletion
+        await FetchTrips({ setTripNames, setLoading }); // Re-fetch trips
+        setSelectedValue('Select A Trip');
+        setTogglevis(false)
+        setAddvis(false)
+    }
+
     return(
         <div>
             <div id='row1travel'>
@@ -38,6 +44,9 @@ const Row1planner = () =>{
                     <option key="addnew" id="addanewtrip" value = 'addnew'> Add New</option>
                     <option key='selectatrip' id='selectatrip' value = 'Select A Trip'>Select A Trip</option>
                 </select>
+                {toggleVis && 
+                    <button type="button" className="btn btn-primary" id="deletebutton" onClick={deleteTrip} >Delete Trip</button>
+                }
             </div>
            
             {addvis && <AddNewTrip />} {/* Render AddNewTrip conditionally */}

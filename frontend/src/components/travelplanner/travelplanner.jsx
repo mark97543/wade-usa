@@ -4,7 +4,7 @@ import Footer from "../footer/footer";
 import './travelplanner.css'
 import axios from "axios"; //Comment this out in production
 import Row1Planner from './row1planner';
-import { FetchTrips } from './db_func_planner';
+import { FetchTrips, FetchData } from './db_func_planner';
 import Row2Planner from './row2_planner'; //Destination, StartDate and End Date
 
 export const StatesContext = createContext(null);
@@ -14,18 +14,20 @@ const TravelPlanner = ({})=>{
     const [loading, setLoading] = useState(true); //Refetches data
     const [selectedValue, setSelectedValue]=useState("Select A Trip") //Toggles Trip Selector
     const[toggleVis, setTogglevis]=useState(false) //Toggles Visibility for adding neww item
-    const [addvis, setAddvis]=useState(true)
+    const [addvis, setAddvis]=useState(false) ///visibility of add new iten
+    const [data, setData]=useState([]) //All Data For Trips
 
     useEffect(()=>{
         FetchTrips({setTripNames:setTripNames, setLoading:setLoading});
+        FetchData({setData:setData})
     }, [])
 
-    //console.log(tripNames)
+    
     return(
     <div>
         <Header />
         
-        <StatesContext.Provider value ={{loading, setLoading, setTripNames, tripNames, selectedValue, setSelectedValue, toggleVis, setTogglevis, addvis, setAddvis}}>
+        <StatesContext.Provider value ={{loading, setLoading, setTripNames, tripNames, selectedValue, setSelectedValue, toggleVis, setTogglevis, addvis, setAddvis, data}}>
             <Row1Planner/>
             {toggleVis && 
                 <div id='tablecontainer'>

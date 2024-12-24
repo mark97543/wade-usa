@@ -5,6 +5,7 @@
     border-top: 2px solid silver;
     border-right: 2px solid silver;
     border-bottom: 2px solid silver;
+    border-radius: 25px;
   
 }
 #row1travel, #addContainer{
@@ -56,13 +57,14 @@
 
 #destinationLabel, #startDateLabel, #endDateLabel{
     margin-bottom: 0; 
-    margin-top: 0 ;
+    margin-top: 5px ;
+    margin-left: 25px;
     font-size: small;
     display: block; /* ensure label is a block element */
     align-self: self-end;
     justify-self: center;
-    width: 99%;    
-
+    width: 99%;
+    font-style: italic;        
 }
 
 #destination, #startDate, #endDate, #newTripInput{
@@ -70,6 +72,7 @@
     justify-self: center;
     background-color: transparent;
     color: silver;
+    margin-left: 10px;
 }
 
 .departingflightbar{
