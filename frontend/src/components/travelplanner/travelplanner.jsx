@@ -14,6 +14,7 @@ const TravelPlanner = ({})=>{
     const [loading, setLoading] = useState(true); //Refetches data
     const [selectedValue, setSelectedValue]=useState("Select A Trip") //Toggles Trip Selector
     const[toggleVis, setTogglevis]=useState(false) //Toggles Visibility for adding neww item
+    const [addvis, setAddvis]=useState(true)
 
     useEffect(()=>{
         FetchTrips({setTripNames:setTripNames, setLoading:setLoading});
@@ -24,13 +25,15 @@ const TravelPlanner = ({})=>{
     <div>
         <Header />
         
-        <StatesContext.Provider value ={{loading, setLoading, setTripNames, tripNames, selectedValue, setSelectedValue, toggleVis, setTogglevis}}>
+        <StatesContext.Provider value ={{loading, setLoading, setTripNames, tripNames, selectedValue, setSelectedValue, toggleVis, setTogglevis, addvis, setAddvis}}>
             <Row1Planner/>
-            <div id='tablecontainer' hidden={true}>
-                <div id='planneronload' hidden={true}>
-                    < Row2Planner />
+            {toggleVis && 
+                <div id='tablecontainer'>
+                    <div id='planneronload'>
+                        < Row2Planner />
+                    </div>
                 </div>
-            </div>
+            }
             {/* Deet To add Delete Trip button here (with warning Modal)*/}
         </StatesContext.Provider>
         <Footer />

@@ -5,20 +5,25 @@ import { StatesContext } from './travelplanner';
 
 const Row1planner = () =>{
 
-    const {selectedValue, setSelectedValue, tripNames, toggleVis, setTogglevis } = useContext(StatesContext);
+    const {selectedValue, setSelectedValue, tripNames, toggleVis, setTogglevis,addvis, setAddvis } = useContext(StatesContext);
+
+    if(selectedValue==="'Select A Trip'"){
+        setTogglevis(true)
+        setAddvis(false)
+    }
 
     const handleSelectChange = (event) => {
 
         const newValue = event.target.value;
         setSelectedValue(newValue);
-        document.getElementById('selectatrip').hidden = !toggleVis; // Okay for simple cases
+        document.getElementById('selectatrip').hidden = true; // Okay for simple cases
     
         if (newValue === 'addnew') {
-          setTogglevis(true);
-          //changevis(toggleVis)
-        } else {
           setTogglevis(false);
-          //changevis(toggleVis)
+          setAddvis(true)
+        } else {
+          setTogglevis(true);
+          setAddvis(false)
         }
     };
 
@@ -35,7 +40,7 @@ const Row1planner = () =>{
                 </select>
             </div>
            
-            {toggleVis && <AddNewTrip />} {/* Render AddNewTrip conditionally */}
+            {addvis && <AddNewTrip />} {/* Render AddNewTrip conditionally */}
 
         </div>
     )
