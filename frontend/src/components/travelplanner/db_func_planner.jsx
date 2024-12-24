@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 
+
 const FetchTrips = async({setTripNames, setLoading})=>{
     try{
         const response = await axios.get('/api/travelnames')

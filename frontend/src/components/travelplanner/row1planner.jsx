@@ -1,20 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { AddNewTrip } from './change_events_planner';
+import { StatesContext } from './travelplanner';
 
 
-const Row1planner = ({selectedValue,setSelectedValue, tripNames}) =>{
+const Row1planner = () =>{
 
-    const[addingNew, setAddingNew]=useState(false)
+    const {selectedValue, setSelectedValue, tripNames, toggleVis, setTogglevis } = useContext(StatesContext);
 
+    const handleSelectChange = (event) => {
+
+        const newValue = event.target.value;
+        setSelectedValue(newValue);
+        document.getElementById('selectatrip').hidden = !toggleVis; // Okay for simple cases
     
+        if (newValue === 'addnew') {
+          setTogglevis(true);
+          //changevis(toggleVis)
+        } else {
+          setTogglevis(false);
+          //changevis(toggleVis)
+        }
+    };
 
-
-    
     return(
         <div>
             <div id='row1travel'>
                 <label htmlFor='plans' id='planselectlabel' className='form-label mt-4'>Travel Itinerary</label>
-                <select  id='planselect' className='form-select' value={selectedValue} onChange={handleSelectChange(setSelectedValue, setAddingNew, addingNew)}> 
+                <select  id='planselect' className='form-select' value={selectedValue} onChange={handleSelectChange}> 
                     {tripNames.map((names)=>(
                         <option value ={names.tripname} key={names.tripname}>{names.tripname}</option>
                     ))}
@@ -23,27 +35,11 @@ const Row1planner = ({selectedValue,setSelectedValue, tripNames}) =>{
                 </select>
             </div>
            
-            {addingNew && <AddNewTrip/>} {/* Render AddNewTrip conditionally */}
+            {toggleVis && <AddNewTrip />} {/* Render AddNewTrip conditionally */}
 
         </div>
     )
 }
 
-
-const handleSelectChange = (setSelectedValue, setAddingNew) => (event) => {
-    const newValue = event.target.value;
-    setSelectedValue(newValue);
-    document.getElementById('selectatrip').hidden = true; // Okay for simple cases
-
-    if (newValue === 'addnew') {
-      setAddingNew(true);
-      document.getElementById('tablecontainer').hidden = true; // Okay for simple cases (consider using state later)
-    } else {
-      setAddingNew(false);
-      document.getElementById('planneronload').hidden = false;
-      document.getElementById('tablecontainer').hidden = false;
-      document.getElementById('destination').value = newValue;
-    }
-  };
 
 export default Row1planner
