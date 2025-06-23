@@ -1,0 +1,72 @@
+# .gitignore
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                    SECRETS                       #
+#      Never, EVER, commit secret files!           #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#               DEPENDENCIES                       #
+#     These folders are huge and can be            #
+#      re-installed from package.json              #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Node/npm/yarn/pnpm dependencies
+**/node_modules/
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                BUILD ARTIFACTS                   #
+#  These are temporary files generated when we     #
+#         build or run our applications.           #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Vite build output
+**/dist/
+**/.vite/
+
+# General build output
+build/
+out/
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#           OS & EDITOR CONFIG FILES               #
+#     These are specific to your computer          #
+#         and don't belong in the repo.            #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+*.[Cc]ache
+*.swo
+*.swp
+
+# VSCode editor config
+.vscode/
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                 DIRECTUS DATA                    #
+#  We want to ignore local data volumes so we      #
+#    don't accidentally commit our database.       #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Local Directus/Postgres data folders
+postgres_data/
+directus_data/
+uploads/
