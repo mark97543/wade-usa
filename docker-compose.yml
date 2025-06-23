@@ -24,6 +24,8 @@ services:
     restart: always
     ports:
       - "8055:8055"
+    env_file:
+      - ./.env
     environment:
       KEY: ${KEY}
       SECRET: ${SECRET}
