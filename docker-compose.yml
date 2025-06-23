@@ -41,6 +41,9 @@ services:
       CORS_ENABLED: "true"
       CORS_ALLOWED_ORIGINS: "http://localhost:5173,https://wade-usa.com"
       CORS_ALLOW_CREDENTIALS: "true"
+      AUTH_PROVIDERS: ${AUTH_PROVIDERS}
+      AUTH_GOOGLE_CLIENT_ID: ${AUTH_GOOGLE_CLIENT_ID}
+      AUTH_GOOGLE_CLIENT_SECRET: ${AUTH_GOOGLE_CLIENT_SECRET}
     volumes:
       - ./extensions:/directus/extensions
       - uploads:/directus/uploads
